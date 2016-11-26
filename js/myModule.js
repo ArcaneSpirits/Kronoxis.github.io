@@ -1,12 +1,11 @@
 // Module
-var scotchApp = angular.module('myModule', ['ngRoute']);
+var module = angular.module('myModule', ['ngRoute']);
 
-scotchApp.config(function($routeProvider, $locationProvider) {
+module.config(function($routeProvider) {
     $routeProvider
-    
         // route for home page
         .when('/', {
-            templateUrl : 'index.html',
+            templateUrl : 'pages/home.html',
             controller : 'mainController'
         })
         
@@ -21,31 +20,35 @@ scotchApp.config(function($routeProvider, $locationProvider) {
             templateUrl : 'pages/contact.html',
             controller : 'contactController'
         });
-        
-        // use HTML5 History API
-        $locationProvider.html5Mode(true);
 });
 
 // Main Controller
-scotchApp.controller('mainController', function($scope) {
+module.controller('mainController', function($scope) {
     
     // Create a message to display in view
-    $scope.message = 'Home Page.';
+    $scope.message = 'Main';
 
 });
 
-// About Controller
-scotchApp.controller('aboutController', function($scope) {
+// Home Controller
+module.controller('homeController', function($scope) {
     
     // Create a message to display in view
-    $scope.message = 'About me.';
+    $scope.message = "Home"
+})
+
+// About Controller
+module.controller('aboutController', function($scope) {
+    
+    // Create a message to display in view
+    $scope.message = 'About';
     
 });
 
 // Contact Controller
-scotchApp.controller('contactController', function($scope) {
+module.controller('contactController', function($scope) {
     
     // Create a message to display in view
-    $scope.message = 'Contact me: contact@kronoxis.com';
+    $scope.message = 'Contact';
     
 });
